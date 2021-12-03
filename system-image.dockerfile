@@ -1,4 +1,4 @@
-FROM php:7.2-apache as SYSTEM-IMAGE
+FROM php:7.2-apache as system-image
 
 RUN apt update && \
     apt install -y \
