@@ -1,4 +1,4 @@
-FROM system-image as distribution-image
+FROM system-image as distributionimage
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
