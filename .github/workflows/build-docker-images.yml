@@ -14,8 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build System image
+    - name: Build System Image
       run: docker build . --file system-image.dockerfile --tag system-image:$(date +%s)
       
-    - name: Build Distribution image
+    - name: Build Distribution Image
       run: docker build . --file distribution-image.dockerfile --tag distribution-image:$(date +%s)
