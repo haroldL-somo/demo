@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build System image
+      run: docker build . --file system-image.dockerfile --tag SYSTEM-IMAGE:$(date +%s)
+      
+    - name: Build Distribution image
+      run: docker build . --file distribution-image.dockerfile --tag DISTRIBUTION-IMAGE:$(date +%s)
