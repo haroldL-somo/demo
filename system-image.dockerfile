@@ -1,20 +1,6 @@
 FROM php:7.2-apache as fyfsystemimage
 
-RUN apt update && \
-    apt install -y \
-      g++ \
-      git \
-      libfreetype6-dev \
-      libicu-dev \
-      libjpeg62-turbo-dev \
-      libpng-dev \
-      libzip-dev \
-      zip \
-      zlib1g-dev \
-      gettext-base \
-    && docker-php-ext-install intl opcache pdo pdo_mysql \
-    && pecl install apcu \
-    && docker-php-ext-enable apcu \
-    && docker-php-ext-install gd \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-install zip
+RUN apt-get update \
+  && apt-get install -y libzip-dev git wget --no-install-recommends \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
