@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Call reusable workflow
         id: call-reusable-wf
-        uses: ./.github/workflows/deploy-workflow.yml@build
+        uses: ./.github/workflows/deploy-workflow.yml@main
         with:
           imageTag: 15
           waitForService: true
