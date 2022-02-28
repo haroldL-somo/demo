@@ -26,10 +26,10 @@ jobs:
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.
-          echo "This is the first step in the first job (build)"
+          echo "This is the first step in the second workflow. The image tag is ${{ inputs.imageTag }}"
           
       - name: Tarea de Deploy
         id: this-is-my-id
         run: |
           #This is a sample 
-          echo "This is the first step in the second job (deploy)"
+          echo "This is the second step in the second job. The waitForService is ${{ inputs.waitForService }}"
