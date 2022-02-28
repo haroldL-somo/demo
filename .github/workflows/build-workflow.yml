@@ -32,8 +32,12 @@ jobs:
         run: |
           #This is a sample 
           echo "This is the first step in the second job (deploy)"
-        
-      
+
+  call-reusable-workflow:
+    runs-on: ubuntu-latest
+    environment: UAT
+    concurrency: UAT
+    steps:
       - name: Call reusable workflow
         id: call-reusable-wf
         uses: haroldL-somo/demo/main/.github/workflows/deploy-workflow.yml@main
