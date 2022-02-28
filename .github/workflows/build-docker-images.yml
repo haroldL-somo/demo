@@ -17,6 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: UAT
+    concurrency: UATD
     steps:         
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
@@ -29,6 +30,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: UAT
+    concurrency: UATD
     steps:
       - name: Tarea de Deploy
         id: this-is-my-id
