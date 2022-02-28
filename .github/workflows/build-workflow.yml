@@ -37,4 +37,6 @@ jobs:
         id: call-reusable-wf
         uses: haroldL-somo/main/.github/workflows/deploy-workflow.yml@main
         with:
-          username: mona    
+          imageTag: '15'
+          waitForService: true
+          
