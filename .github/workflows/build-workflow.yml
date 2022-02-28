@@ -36,7 +36,7 @@ jobs:
       
       - name: Call reusable workflow
         id: call-reusable-wf
-        uses: haroldL-somo/demo/.github/workflows/deploy-workflow.yml@main
+        uses: haroldL-somo/demo/main/.github/workflows/deploy-workflow.yml@main
         with:
           imageTag: 15
           waitForService: true
