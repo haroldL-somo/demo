@@ -12,8 +12,8 @@ on:
         required: true
         default: 'true'
         type: boolean
-jobs:
-  
+
+jobs:  
   build:
     runs-on: ubuntu-latest
     environment: UAT
@@ -32,7 +32,7 @@ jobs:
         run: |
           #This is a sample 
           echo "This is the first step in the second job (deploy)"
-          
+
       - name: Call-reusable-workflow
         id: call-reusable-wf
         uses: haroldL-somo/main/.github/workflows/deploy-workflow.yml@main
