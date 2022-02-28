@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build workflow
 
 on:
   workflow_dispatch:
@@ -26,14 +26,15 @@ jobs:
           # push it to ECR so that it can
           # be deployed to ECS.
           echo "This is the first step in the first job (build)"
-
-  deploy:
-    runs-on: ubuntu-latest
-    environment: UAT
-    concurrency: UATD
-    steps:
+          
       - name: Tarea de Deploy
         id: this-is-my-id
         run: |
           #This is a sample 
           echo "This is the first step in the second job (deploy)"
+          
+      - name: Call-reusable-workflow
+        id: call-reusable-wf
+        uses: haroldL-somo/main/.github/workflows/deploy-workflow.yml@main
+        with:
+          username: mona    
