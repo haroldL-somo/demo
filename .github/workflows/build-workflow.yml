@@ -1,0 +1,45 @@
+name: Build workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      imageTag:
+        description: 'UAT Image Tag to deploy'
+        required: true
+        default: 'warning'
+      waitForService:
+        description: 'Wait for cluster to finish deployment?'
+        required: true
+        type: boolean
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+    environment: UAT
+    concurrency: UATD
+    steps:         
+      - name: Build, tag, and push image to Amazon ECR
+        id: build-image
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          echo "This is the first step in the first job (build)"
+          
+      - name: Tarea de Deploy
+        id: this-is-my-id
+        run: |
+          #This is a sample 
+          echo "This is the first step in the second job (deploy)"
+
+  call-reusable-workflow:
+    runs-on: ubuntu-latest
+    environment: UAT
+    concurrency: UATD
+    steps:
+      - name: Call reusable workflow
+        id: call-reusable-wf
+        uses: ./.github/actions/deploy-workflow.yml
+        with:
+          imageTag: 15
+          waitForService: true
