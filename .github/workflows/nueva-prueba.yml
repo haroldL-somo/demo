@@ -1,10 +1,10 @@
 name: Nueva prueba
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
-    types:
-      - closed
-    branches: [ BuildDocker ]
+    branches: [ main ]
 
 jobs:
 
