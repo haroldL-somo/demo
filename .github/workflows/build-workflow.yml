@@ -10,7 +10,6 @@ on:
       waitForService:
         description: 'Wait for cluster to finish deployment?'
         required: true
-        default: 'true'
         type: boolean
 
 jobs:  
